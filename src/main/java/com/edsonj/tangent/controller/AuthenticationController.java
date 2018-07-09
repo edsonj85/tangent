@@ -34,7 +34,7 @@ public class AuthenticationController {
 		Token authToken = restTemplate.postForObject(authUrl, usernamePassword, Token.class);
 		ModelAndView mav = new ModelAndView();
 		response.addCookie(new Cookie("token", authToken.getToken()));
-		mav.setViewName("home");
+		mav.setViewName("redirect:/employee/all");
 		return mav;
 	}
 

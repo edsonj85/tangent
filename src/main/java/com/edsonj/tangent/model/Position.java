@@ -2,7 +2,6 @@ package com.edsonj.tangent.model;
 
 import java.io.Serializable;
 
-import com.edsonj.tangent.util.EmployeeReview;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonSerialize
@@ -13,7 +12,7 @@ public class Position implements Serializable{
 	private static final long serialVersionUID = 5073132209347315836L;
 	private String id;
     private String sort;
-    private EmployeeReview level;
+    private String level;
     private String name;
     
 	public String getId() {
@@ -28,10 +27,10 @@ public class Position implements Serializable{
 	public void setSort(String sort) {
 		this.sort = sort;
 	}
-	public EmployeeReview getLevel() {
+	public String getLevel() {
 		return level;
 	}
-	public void setLevel(EmployeeReview level) {
+	public void setLevel(String level) {
 		this.level = level;
 	}
 	public String getName() {

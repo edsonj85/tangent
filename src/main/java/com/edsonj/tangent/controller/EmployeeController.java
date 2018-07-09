@@ -26,8 +26,10 @@ public class EmployeeController {
 	
 	@RequestMapping(value="all")
 	public List<Employee> allEmployees(@RequestHeader(value="Authorization", required=true) String token, 
-			@RequestParam(value="race", required=false) Character race, @RequestParam(value="position", required=true) Integer position,
-			@RequestParam(value="start_date_range", required=true) LocalDate date ) {
+			@RequestParam(value="race", required=false) Character race, @RequestParam(value="position", required=false) Integer position,
+			@RequestParam(value="start_date_range", required=false) Integer startDateRange, @RequestParam(value="user", required=false) Integer userId, 
+			@RequestParam(value="gender", required=false) Character gender, @RequestParam(value="birth_date_range", required= false) Integer birthDateRange,
+			@RequestParam(value="email__contains", required=false) String emailContains) {
 		String profileUrl = url+"employee/";
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<String> entity = new HttpEntity<>(AuthHelper.createHttpHeaders(token));

@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Tangent Login</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/signin.css}">
 </head>
-<body>
-
+<body class="text-center">
+			<form th:action="@{/auth}"  method="post" th:object="${usernamePassword}" action="#" class="form-signin">
+				<h1 class="h3 mb-3 font-weight-normal">Please sign in </h1>
+				<label class="sr-only" for="username">Username</label>
+				<input class="form-control" id="username" type="text" th:field="*{username}" placeholder="Username" required="required" autofocus="autofocus">
+				<label class="sr-only" for="password">Password</label>
+				<input class="form-control" id="password" type="password" placeholder="Password" th:field="*{password}" required="required">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign In </button>
+			</form>
 </body>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>
 </html>

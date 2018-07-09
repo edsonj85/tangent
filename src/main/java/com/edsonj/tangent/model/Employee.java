@@ -2,6 +2,8 @@ package com.edsonj.tangent.model;
 
 import java.io.Serializable;
 
+import com.edsonj.tangent.util.Gender;
+import com.edsonj.tangent.util.Race;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -25,8 +27,8 @@ public class Employee implements Serializable{
     private String age;
     @JsonProperty(value="days_to_birthday")
     private String daysToBirthday;
-    private String gender;
-    private String race;
+    private Gender gender;
+    private Race race;
     private User user;
 	public String getYearsWorked() {
 		return yearsWorked;
@@ -76,16 +78,16 @@ public class Employee implements Serializable{
 	public void setDaysToBirthday(String daysToBirthday) {
 		this.daysToBirthday = daysToBirthday;
 	}
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-	public String getRace() {
+	public Race getRace() {
 		return race;
 	}
-	public void setRace(String race) {
+	public void setRace(Race race) {
 		this.race = race;
 	}
 	public User getUser() {

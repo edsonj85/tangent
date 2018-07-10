@@ -7,7 +7,7 @@
 <link rel="stylesheet" th:href="@{/css/signin.css}">
 </head>
 <body class="text-center">
-			<form th:action="@{/auth}"  method="post" th:object="${usernamePassword}" action="#" class="form-signin">
+			<form th:action="@{/}"  method="post" th:object="${usernamePassword}" action="#" class="form-signin">
 				<h1 class="h3 mb-3 font-weight-normal">Please sign in </h1>
 				<label class="sr-only" for="username">Username</label>
 				<input class="form-control" id="username" type="text" th:field="*{username}" placeholder="Username" required="required" autofocus="autofocus">

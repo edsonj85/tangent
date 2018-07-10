@@ -4,6 +4,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.ui.Model;
@@ -21,15 +23,17 @@ import com.edsonj.tangent.model.UsernamePassword;
 
 
 @RestController
-@RequestMapping(value="auth")
+@RequestMapping(value="/")
 @PropertySource(value = { "classpath:application.properties" })
 public class AuthenticationController {
+	private static final Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
+	
 	@Value(value="${auth.url}")
 	private String authUrl;
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView authenticateUser(@Valid @ModelAttribute UsernamePassword usernamePassword, HttpServletResponse response, BindingResult result ) {
-		//call the API authentication method.
+		logger.info("Authentication");
 		RestTemplate restTemplate = new RestTemplate();
 		Token authToken = restTemplate.postForObject(authUrl, usernamePassword, Token.class);
 		ModelAndView mav = new ModelAndView();
